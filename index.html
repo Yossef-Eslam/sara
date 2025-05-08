@@ -3,33 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="عيادة د. سارة - أخصائية تغذية علاجية معتمدة">
     <title>عيادة د. سارة | أخصائية تغذية علاجية</title>
+    
+    <!-- تحسين SEO -->
+    <meta property="og:title" content="عيادة د. سارة">
+    <meta property="og:description" content="استشارات تغذية علاجية متخصصة">
+    
+    <!-- Preload للعناصر المهمة -->
+    <link rel="preload" href="assets/css/style.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    
+    <!-- الخطوط والأيقونات -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
+    <!-- شريط التنقل -->
+    <header class="main-header">
         <div class="container">
-            <div class="logo">
-                <span>DR. SARA</span>
-                <span>NUTRITIONIST</span>
+            <div class="logo" aria-label="شعار العيادة">
+                <img src="assets/images/logo.png" alt="شعار عيادة د. سارة" width="120" height="60">
             </div>
-            <nav>
-                <a href="index.html" class="active">الرئيسية</a>
-                <a href="about.html">من أنا</a>
-                <a href="contact.html">حجز موعد</a>
+            
+            <nav class="main-nav" aria-label="القائمة الرئيسية">
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="about.html"><i class="fas fa-user-md"></i> من أنا</a></li>
+                    <li><a href="services.html"><i class="fas fa-heartbeat"></i> الخدمات</a></li>
+                    <li><a href="contact.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+                </ul>
             </nav>
+            
+            <button class="mobile-menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <section class="hero">
+    <!-- قسم الهيرو -->
+    <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-content">
-            <h1>صحتك تبدأ <span>بالتغذية السليمة</span></h1>
-            <p>برامج تغذية شخصية لتحقيق أهدافك الصحية</p>
-            <a href="contact.html" class="btn">احجز استشارتك الآن</a>
+            <h1 id="hero-heading">صحتك تبدأ <span>بالتغذية السليمة</span></h1>
+            <p>برامج تغذية شخصية مصممة حسب احتياجاتك الصحية</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone-alt"></i> احجز استشارة</a>
+                <a href="tel:+20123456789" class="btn btn-secondary"><i class="fas fa-mobile-alt"></i> اتصل بنا</a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-down">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <script src="assets/js/main.js"></script>
+    <!-- خدمات مميزة -->
+    <section class="featured-services">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-star"></i> خدماتنا المميزة</h2>
+            
+            <div class="services-grid">
+                <article class="service-card" tabindex="0">
+                    <div class="service-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>برامج تخفيف الوزن</h3>
+                    <p>خطط غذائية مخصصة لخسارة الوزن بشكل صحي وآمن</p>
+                    <a href="#" class="service-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                </article>
+                
+                <!-- أضف باقي الخدمات بنفس النمط -->
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="main-footer">
+        <div class="container">
+            <!-- محتوى الفوتر -->
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/20123456789" class="whatsapp-float" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
