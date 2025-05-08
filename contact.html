@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <title>تواصل معي | د. سارة أحمد</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #ff7675, #fd79a8);
+      color: #2d3436;
+      direction: rtl;
+    }
+
+    header {
+      background: linear-gradient(to left, #e84393, #fd79a8);
+      color: white;
+      padding: 30px 10px;
+      text-align: center;
+      font-size: 24px;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 60px;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e84393;
+      background-color: #fdcb6e;
+      padding: 12px 25px;
+      border-radius: 30px;
+      margin: 5px;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #e84393;
+      color: white;
+    }
+
+    .contact {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    form {
+      max-width: 550px;
+      margin: 0 auto;
+      background: #ffffffcc;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    form h2 {
+      color: #e84393;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: right;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #e84393;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #fd79a8;
+    }
+
+    footer {
+      background-color: #e84393;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #fdcb6e;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="شعار عيادة د.سارة" class="logo">
+  <h1><i class="fas fa-envelope"></i> تواصل معي</h1>
+</header>
+
+<nav>
+  <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+  <a href="about.html"><i class="fas fa-user"></i> من أنا</a>
+  <a href="contact.html"><i class="fas fa-envelope-open"></i> تواصل معي</a>
+</nav>
+
+<div class="contact">
+  <form action="https://formspree.io/f/mrbqqqaq" method="POST">
+    <h2>أرسل رسالة الآن</h2>
+    <label for="name">الاسم</label>
+    <input id="name" name="name" type="text" required placeholder="اكتب اسمك هنا" />
+
+    <label for="email">البريد الإلكتروني</label>
+    <input id="email" name="email" type="email" required placeholder="example@email.com" />
+
+    <label for="message">الرسالة</label>
+    <textarea id="message" name="message" rows="5" required placeholder="اكتب رسالتك هنا..."></textarea>
+
+    <button type="submit"><i class="fas fa-paper-plane"></i> إرسال</button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2025 عيادة د. سارة - جميع الحقوق محفوظة</p>
+  <div class="social-icons" style="margin-top: 10px;">
+    <a href="#" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+  </div>
+</footer>
+
+<script>
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = this;
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.innerHTML = "<h2>✅ تم إرسال رسالتك بنجاح!</h2><p>سيتم تحويلك إلى الصفحة الرئيسية خلال 3 ثوانٍ...</p>";
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 3000);
+      } else {
+        form.innerHTML = "<h2>حدث خطأ أثناء الإرسال. حاول مرة أخرى.</h2>";
+      }
+    }).catch(() => {
+      form.innerHTML = "<h2>تعذر الاتصال بالخادم. حاول لاحقًا.</h2>";
+    });
+  });
+</script>
+
+</body>
+</html>
